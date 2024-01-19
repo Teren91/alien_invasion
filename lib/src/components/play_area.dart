@@ -1,5 +1,5 @@
 
-import 'package:basic/src/alien_invasion.dart';
+import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flame/components.dart';

@@ -1,6 +1,6 @@
 //import 'package:basic/play_session/game_widget.dart';
-import 'package:basic/app_lifecycle/app_lifecycle.dart';
-import 'package:basic/src/alien_invasion.dart';
+import 'package:alien_invasion/app_lifecycle/app_lifecycle.dart';
+import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flame/game.dart';
