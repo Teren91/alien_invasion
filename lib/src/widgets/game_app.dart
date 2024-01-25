@@ -4,6 +4,7 @@ import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flame/game.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 // import '../../app_lifecycle/app_lifecycle.dart';
 // import '../../audio/audio_controller.dart';
@@ -42,10 +43,10 @@ class _GameAppState extends State<GameApp> {
           
             return MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
+            theme: flutterNesTheme().copyWith(
               colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
-                background: palette.backgroundMain,  
+                seedColor: palette.seed.color,
+                background: palette.backgroundMain.color,  
               )
             ),
             home:Scaffold(

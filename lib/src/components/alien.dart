@@ -1,5 +1,5 @@
 
-import 'package:alien_invasion/src/components/bullet.dart';
+
 import 'package:flame/effects.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +8,10 @@ import 'package:flame/collisions.dart';
 import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:alien_invasion/src/components/components.dart';
 import 'package:alien_invasion/settings/components_settings.dart';
+import 'package:alien_invasion/style/palette.dart';
 
-class Alien extends RectangleComponent
+
+class Alien extends SpriteComponent
   with CollisionCallbacks, HasGameReference<AlienInvasion>
 {
   Alien(
@@ -22,7 +24,8 @@ class Alien extends RectangleComponent
   })
     : super(
       anchor: Anchor.center,
-      children: [RectangleHitbox()] 
+      paint: Paint()..color = Palette().alien.color,
+      children: [RectangleHitbox()] ,
     );
 
   final Vector2 velocity;
@@ -68,13 +71,23 @@ class Alien extends RectangleComponent
       debugPrint('Collision with $other');
     }
   }
- 
+
+  @override
+  Future<void> onLoad() async
+  {
+    super.onLoad();
+    await game.loadSprite(
+      'enemy/ufo_mad.png', 
+    );
+  }
+
+
   //Función que hace que los aliens bajen una fila y cambien de dirección
   void alienDrop()
   {    
       game.world.children.query<Alien>().forEach((alien) {
         alien.velocity.x = -alien.velocity.x;
-        alien.position.y = alien.position.y + alienHeight ;
+        alien.position.y = alien.position.y + (alienHeight / 2) ;
       });
   }
   

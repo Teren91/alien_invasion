@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:flame/palette.dart';
 
 /// A palette of colors to be used in the game.
 ///
@@ -23,15 +23,15 @@ import 'package:flutter/material.dart';
 /// we could allow players to customize colors, for example,
 /// or even get the colors from the network.
 class Palette {
-  Color get pen => const Color(0xff1d75fb);
-  Color get darkPen => const Color(0xFF0050bc);
-  Color get redPen => const Color(0xFFd10841);
-  Color get inkFullOpacity => const Color(0xff352b42);
-  Color get ink => const Color(0xee352b42);
-  Color get backgroundMain => const Color(0xffffffd1);
-  Color get backgroundLevelSelection => const Color(0xffa2dcc7);
-  Color get backgroundPlaySession => const Color(0xffffebb5);
-  Color get background4 => const Color(0xffffd7ff);
-  Color get backgroundSettings => const Color(0xffbfc8e3);
-  Color get trueWhite => const Color(0xffffffff);
+  PaletteEntry get seed => const PaletteEntry(Color(0xFF0050bc));
+  PaletteEntry get text => const PaletteEntry(Color(0xee352b42));
+  PaletteEntry get backgroundMain => const PaletteEntry(Color(0xff998F8B));
+  PaletteEntry get backgroundLevelSelection =>
+      const PaletteEntry(Color(0xffffcd75));
+  PaletteEntry get backgroundPlaySession =>
+      const PaletteEntry(Color(0xffa2fff3));
+  PaletteEntry get backgroundSettings => const PaletteEntry(Color(0xffbfc8e3));
+  PaletteEntry get player => const PaletteEntry(Color(0xffDD5600));
+  PaletteEntry get alien => const PaletteEntry(Color(0xff8D7C00));
+  PaletteEntry get bullet => const PaletteEntry(Color(0xff6750A4));
 }

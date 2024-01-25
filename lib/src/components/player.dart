@@ -11,6 +11,7 @@ import 'dart:math' as math;
 import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:alien_invasion/src/components/components.dart';
 import 'package:alien_invasion/settings/components_settings.dart';
+import 'package:alien_invasion/style/palette.dart';
 
 class Player extends PositionComponent
     with DragCallbacks, HasGameReference<AlienInvasion> {
@@ -22,9 +23,9 @@ class Player extends PositionComponent
 
   final Radius cornerRadius;
   final rand = math.Random();
-
+  
   final _paint = Paint()
-    ..color = Colors.green[300]!
+    ..color = Palette().player.color//Colors.green[300]!
     ..style = PaintingStyle.fill;
 
   @override

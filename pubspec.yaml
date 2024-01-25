@@ -20,6 +20,7 @@ dependencies:
   provider: ^6.0.5
   shared_preferences: ^2.2.2
   flame: ^1.14.0
+  nes_ui: ^0.13.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -33,6 +34,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/enemy/ufo_mad.png
     - assets/music/
     - assets/sfx/
 

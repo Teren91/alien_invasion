@@ -23,7 +23,7 @@ class MainMenuScreen extends StatelessWidget {
     final audioController = context.watch<AudioController>();
 
     return Scaffold(
-      backgroundColor: palette.backgroundMain,
+      backgroundColor: palette.backgroundMain.color,
       body: ResponsiveScreen(
         squarishMainArea: Center(
           child: Transform.rotate(

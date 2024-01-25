@@ -1,12 +1,11 @@
 import 'package:alien_invasion/src/alien_invasion.dart';
-import 'package:flame/effects.dart';
-import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flame/components.dart';
 import 'package:flame/collisions.dart';
 
 import 'package:alien_invasion/src/components/components.dart';
+import 'package:alien_invasion/style/palette.dart';
 
 class Bullet extends RectangleComponent
   with CollisionCallbacks, HasGameReference<AlienInvasion>
@@ -21,7 +20,7 @@ class Bullet extends RectangleComponent
       anchor: Anchor.center,
       children: [RectangleHitbox()] ,
       paint: Paint()
-        ..color = Colors.orange[400]!
+        ..color = Palette().bullet.color
         ..style = PaintingStyle.fill,
     );
 

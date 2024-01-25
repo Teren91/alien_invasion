@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flame/components.dart';
 import 'package:flame/collisions.dart';
+import 'package:alien_invasion/style/palette.dart';
 
 class PlayArea extends RectangleComponent 
   with HasGameRef<AlienInvasion>
 {
   PlayArea()
     : super(
-      paint: Paint()..color = const Color(0xFF0000FF),
+      paint: Paint()..color = Palette().backgroundMain.color,
       children: [RectangleHitbox()]
     );
 
