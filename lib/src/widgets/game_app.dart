@@ -1,6 +1,8 @@
 //import 'package:basic/play_session/game_widget.dart';
 import 'package:alien_invasion/app_lifecycle/app_lifecycle.dart';
+import 'package:alien_invasion/settings/components_settings.dart';
 import 'package:alien_invasion/src/alien_invasion.dart';
+import 'package:alien_invasion/src/widgets/overlay_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flame/game.dart';
@@ -51,8 +53,38 @@ class _GameAppState extends State<GameApp> {
             ),
             home:Scaffold(
               body: SafeArea(
-                child: GameWidget(
-                  game: game,
+                child: FittedBox(
+                  child: SizedBox(
+                    width: gameWidth,
+                    height: gameHeight,
+                    
+                    child: GameWidget(
+                      game: game,
+                      overlayBuilderMap: 
+                      {
+                        PlayState.welcome.name: (context, game) =>
+                        const OverlayScreen(
+                          title: 'Alien Invasion',
+                          subtitle: 'Tap to start',
+                        ),
+                         PlayState.gameOver.name: (context, game) =>
+                        const OverlayScreen(
+                          title: 'GAME OVER',
+                          subtitle: 'Tap to play again',
+                        ),
+                         PlayState.win.name: (context, game) =>
+                        const OverlayScreen(
+                          title: 'YOU WON!!!',
+                          subtitle: 'Tap to play again',
+                        ),
+                         PlayState.pause.name: (context, game) =>
+                        const OverlayScreen(
+                          title: 'PAUSE',
+                          subtitle: 'Tap to continue',
+                        ),
+                      },
+                    ),
+                  ),
                 ),
               )
             ),

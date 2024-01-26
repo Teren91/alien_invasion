@@ -1,8 +1,11 @@
 
-import 'package:flame/effects.dart';
-import 'package:flame/events.dart';
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:flame/events.dart';
+import 'package:flame/flame.dart';
+
+
+import 'package:flame/effects.dart';
 import 'package:flame/components.dart';
 import 'package:flame/collisions.dart';
 
@@ -11,31 +14,42 @@ import 'dart:math' as math;
 import 'package:alien_invasion/src/alien_invasion.dart';
 import 'package:alien_invasion/src/components/components.dart';
 import 'package:alien_invasion/settings/components_settings.dart';
-import 'package:alien_invasion/style/palette.dart';
 
-class Player extends PositionComponent
+class Player extends SpriteComponent
     with DragCallbacks, HasGameReference<AlienInvasion> {
   Player(
-      {required this.cornerRadius,
+      {
+      //required this.cornerRadius,
       required super.position,
       required super.size})
       : super(anchor: Anchor.center, children: [RectangleHitbox()]);
 
-  final Radius cornerRadius;
+//  final Radius cornerRadius;
   final rand = math.Random();
   
-  final _paint = Paint()
-    ..color = Palette().player.color//Colors.green[300]!
-    ..style = PaintingStyle.fill;
+  // final _paint = Paint()
+  //   ..color = Palette().player.color//Colors.green[300]!
+  //   ..style = PaintingStyle.fill;
+
+  // @override
+  // void render(Canvas canvas) {
+  //   //Pinta un rectangulo con bordes redondeados
+  //   super.render(canvas);
+  //   canvas.drawRRect(
+  //     RRect.fromRectAndRadius(Offset.zero & size.toSize(), cornerRadius),
+  //     _paint,
+  //   );
+  // }
 
   @override
-  void render(Canvas canvas) {
-    //Pinta un rectangulo con bordes redondeados
-    super.render(canvas);
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(Offset.zero & size.toSize(), cornerRadius),
-      _paint,
-    );
+  void onLoad() async {
+    super.onLoad();
+
+    
+    Image image = await Flame.images.load('player/plane.png');
+    final playerSprite = Sprite(image);  
+    
+    sprite = playerSprite;
   }
 
   //Crea un efecto de movimiento
@@ -59,6 +73,5 @@ class Player extends PositionComponent
         size: Vector2(bulletWidth, bulletHeight),
       ),
     );
-    debugPrint('Bullet added from player');
   }
 }
